@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>webpack-vue-dojo-boot</title>
+    <!-- ArcGIS JS 4 and bootstrap css -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://js.arcgis.com/4.4/esri/css/main.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <div id="viewDiv"></div>
+    <script>
+      window.dojoConfig = {
+        async: true,
+        // in this example we're using a third party library
+        // that is not bundled with the ArcIGS API for JavaScript
+        // so we need to tell Dojo where to load it from (dojo bootstrap)
+        packages: [
+          {
+            name: "bootstrap",
+            location: "//rawgit.com/xsokev/Dojo-Bootstrap/master"
+          }
+        ]
+      };
+    </script>
+    <script src="https://js.arcgis.com/4.4/"></script>
+    <script>
+      // once the ArcGIS API for JavaScript has loaded
+      // we must use Dojo's require() to load the bundled webpack output
+      // only the Dojo loader will be able to resolve the bundle's references
+      // to "external" dependencies on modules in the esri and dojo packages
+      require(["./dist/vendor.bundle.js", "../../dist/main.bundle.js"], function (vendor, main) {});
+    </script>
+  </body>
+</html>
