@@ -12,7 +12,7 @@ This example combines usage of vue.js, dojo, dojo/bootstrap, and the ArcGIS Java
  - vue-loader, vue-template-compiler
  - webpack, webpack-dev-server
 
-Run demo:
+### Run demo:
 ```
 npm install
 npm run build
