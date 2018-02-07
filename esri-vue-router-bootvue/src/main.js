@@ -4,8 +4,8 @@ import VueRouter from 'vue-router'
 import BootstrapVue from 'bootstrap-vue';
 import { loadScript } from 'esri-loader'
 import App from './App.vue'
-import HomeButton from './components/HomeButton.vue';
-import LocateButton from './components/LocateButton.vue';
+import PlainMap from './components/PlainMap.vue';
+import WebMap from './components/WebMap.vue';
 
 // set up Vue plugins
 Vue.use(VueRouter);
@@ -24,8 +24,8 @@ Vue.use(Modal);
 // `Vue.extend()`, or just a component options object.
 // We'll talk about nested routes later.
 const routes = [
-  { path: '/home-button', component: HomeButton },
-  { path: '/locate-button', component: LocateButton },
+  { path: '/Plain-Map', component: PlainMap },
+  { path: '/Web-Map', component: WebMap },
 ];
 
 // 3. Create the router instance and pass the `routes` option
@@ -37,7 +37,7 @@ const router = new VueRouter({
 
 // preload the ArcGIS API
 const options = {
-  url: 'https://js.arcgis.com/3.23/', //comment this out to use latest (4.x)
+  // url: 'https://js.arcgis.com/3.23/', //comment this out to use latest (4.x)
 };
 loadScript(options);
 

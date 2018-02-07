@@ -16,7 +16,7 @@
       }
     },
     mounted: function () {
-      loadModules(['esri/map', 'esri/MapView'])
+      loadModules(['esri/Map', 'esri/views/MapView'])
         .then(([Map, MapView]) => {
           // initialize map and view
           this.map = new Map({
@@ -29,6 +29,7 @@
             zoom: 16,
             center: [-93.3, 45]
           });
+
         })
         .catch(err => {
           // handle any script or module loading errors
