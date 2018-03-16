@@ -23,7 +23,7 @@
         .then(([Map, MapView, FeatureLayer]) => {
           // initialize map and view
           this.map = new Map({
-            basemap: this.basemap || "satellite" // can be passed as prop, defaulting to satellite
+            basemap: this.basemap || "topo" // can be passed as prop, defaulting to satellite
           });
 
           this.view = new MapView({

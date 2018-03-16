@@ -5,8 +5,7 @@
       <p>This is an example BootstrapVue Modal!</p>
     </b-modal>
     <content-panel></content-panel>
-    <map-component :basemap="'topo'"></map-component>
-
+    <map-component :basemap="'dark-gray-vector'"></map-component>
   </div>
 </template>
 
