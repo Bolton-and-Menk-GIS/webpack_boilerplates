@@ -10,9 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --watch"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "bootstrap-vue": "^2.0.0-rc.1",
-    "esri-loader": "^2.0.0",
     "vue": "^2.5.11"
   },
   "browserslist": [
@@ -25,8 +23,11 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
+    "esri-loader": "^2.2.0",
+    "style-loader": "^0.20.3",
     "file-loader": "^1.1.4",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
