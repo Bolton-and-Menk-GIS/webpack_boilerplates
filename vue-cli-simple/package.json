@@ -1,16 +1,15 @@
 {
-  "name": "esri-vue-cli-example",
-  "description": "An example of how to use the ArcGIS API for JavaScript 3.x in a vue-cli application",
+  "name": "vue-cli-simple",
+  "description": "vue-cli-simple webpack template",
   "version": "1.0.0",
-  "author": "Tom Wayson <tom@tomwayson.com>",
-  "license": "Apache-2.0",
+  "author": "Nate Christ <nat1597@hotmail.com>",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules --watch"
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
-    "bootstrap-vue": "^2.0.0-rc.1",
     "vue": "^2.5.11"
   },
   "browserslist": [
@@ -23,12 +22,11 @@
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.0",
     "babel-preset-stage-3": "^6.24.1",
-    "babel-polyfill": "^6.26.0",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
-    "esri-loader": "^2.2.0",
-    "style-loader": "^0.20.3",
     "file-loader": "^1.1.4",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
