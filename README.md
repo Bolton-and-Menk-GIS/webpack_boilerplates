@@ -1,4 +1,4 @@
-# webpack_configuration_boilerplates
+# webpack_boilerplates
 Example Webpack Configurations that use Vue.js
 
 ## esri-vue-bootvue
