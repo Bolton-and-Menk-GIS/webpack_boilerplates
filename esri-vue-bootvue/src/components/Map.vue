@@ -1,63 +1,59 @@
 <template>
-  <div id="viewDiv"></div>
+  <div id="app" class="container-fluid">
+    <div class='navbar'>
+      <b-button v-b-modal.testModal>Show Modal</b-button>
+    <b-modal id="testModal" :title="'BootstrapVue Modal'">
+      <p>This is an example BootstrapVue Modal!</p>
+    </b-modal>
+    </div>
+    <map-component :basemap="'topo'"></map-component>
+    <div id="mapnav" style="margin: 50px 0 0 1px;"></div>
+  </div>
 </template>
 
 <script>
-  // this is probably the real map component we will want to use, this assumes we are using 4.x
-  import { loadModules } from 'esri-loader';
-
-  export default {
-    name: 'map-component',
-    props: ['basemap'],
-    data(){
-      return {
-        map: null,
-        view: null
-      }
-    },
-    mounted: function () {
-      loadModules(['esri/Map', 'esri/views/MapView', 'esri/widgets/Zoom'])
-        .then(([Map, MapView, Zoom]) => {
-
-          // initialize map and view
-          this.map = new Map({
-            basemap: this.basemap || "satellite" // can be passed as prop, defaulting to satellite
-          });
-
-          this.view = new MapView({
-            container: "viewDiv",
-            map: this.map,
-            zoom: 16,
-            center: [-93.3, 45],
-            ui: {
-              components: []
-            }
-          });
-
-          const zoom = new Zoom({
-            view: this.view,
-            container: 'mapnav'
-          });
-
-          this.view.ui.add([zoom], 'top-left');
-
-        })
-        .catch(err => {
-          // handle any script or module loading errors
-          console.error(err);
-        });
+import MapComponent from "./components/Map.vue";
+export default {
+  components: {MapComponent},
+  name: 'app',
+  data () {
+    return {
+      msg: 'ArcGIS JS API Samples in a Vue.js App'
     }
   }
-
-
+}
 </script>
 
 <style>
-  #viewDiv{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 100%;
+/* esri styles */
+@import url(https://js.arcgis.com/4.11/esri/css/main.css);
+@import url(//unpkg.com/bootstrap/dist/css/bootstrap.min.css);
+@import url(//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css);
+
+html,body{
+    font-family: 'Voces', sans-serif;
+    /*font-family: Voces, cursive;*/
+    padding: 0;
+    margin: 0;
     height: 100%;
-  }
+    width: 100%;
+}
+
+#app {
+  position: relative;
+  overflow: hidden;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  /* margin-top: 10px; */
+  height: 100%;
+}
+
+.navbar{
+  z-index: 1000;
+  position: absolute;
+  height: 50px;
+}
 </style>
