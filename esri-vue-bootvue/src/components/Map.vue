@@ -16,8 +16,9 @@
       }
     },
     mounted: function () {
-      loadModules(['esri/Map', 'esri/views/MapView'])
-        .then(([Map, MapView]) => {
+      loadModules(['esri/Map', 'esri/views/MapView', 'esri/widgets/Zoom'])
+        .then(([Map, MapView, Zoom]) => {
+
           // initialize map and view
           this.map = new Map({
             basemap: this.basemap || "satellite" // can be passed as prop, defaulting to satellite
@@ -27,8 +28,19 @@
             container: "viewDiv",
             map: this.map,
             zoom: 16,
-            center: [-93.3, 45]
+            center: [-93.3, 45],
+            ui: {
+              components: []
+            }
           });
+
+          const zoom = new Zoom({
+            view: this.view,
+            container: 'mapnav'
+          });
+
+          this.view.ui.add([zoom], 'top-left');
+
         })
         .catch(err => {
           // handle any script or module loading errors
@@ -42,6 +54,9 @@
 
 <style>
   #viewDiv{
+    display: flex;
+    flex-direction: column;
+    position: relative;
     width: 100%;
     height: 100%;
   }
